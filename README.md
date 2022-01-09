@@ -21,7 +21,7 @@ Text in curly brackets will not sent to the html file. So this can be used to ad
 
 When click on submit, an e-mail with an string of the given answers is ready to sent to the teacher. 
 
-You can find the Worddocument with the macro in the WordDoc folder in this repository. The name of the file is Convert2MultiChoiceHtml.docm.
+**You can find the Worddocument with the macro** in the WordDoc folder in this repository. The name of the file is Convert2MultiChoiceHtml.docm.
 
 In an other repository I planned to publish an Outlook Add-In to evaluate the answers , to an Excel spreadsheet.
 
