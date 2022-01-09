@@ -16,7 +16,7 @@ Q2 Question2
 etc.
 
 
-Question.. and answer .. can be used with sub en sup script , italic, underline etc. 
+Questions and answers can be used with subscript and superscript , italic, underline etc., e.g. chemical formulas.
 Text in curly brackets will not sent to the html file. So this can be used to add explanations.
 
 When click on submit, an e-mail with an string of the given answers is ready to sent to the teacher. 
