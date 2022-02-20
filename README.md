@@ -16,13 +16,13 @@ Q2 Question2
 etc.
 
 
-Question.. and answer .. can be used with sub en sup script , italic, underline etc. 
+Questions and answers can be used with subscript and superscript , italic, underline etc., e.g. chemical formulas.
 Text in curly brackets will not sent to the html file. So this can be used to add explanations.
 
 In a previous version "When click on submit, an e-mail with an string of the given answers is ready to sent to the teacher."
 In the last version when you click on the button the answers are copied to the clipboard. So the student can paste it in a Microsoft Form, or any other platform to share with the teacher. 
 
-You can find the Worddocument with the macro in the WordDoc folder in this repository. The name of the file is Convert2MultiChoiceHtml.docm.
+**You can find the Worddocument with the macro** in the WordDoc folder in this repository. The name of the file is Convert2MultiChoiceHtml.docm.
 
 In an other repository I planned to publish an Outlook Add-In to evaluate the answers , to an Excel spreadsheet.
 
