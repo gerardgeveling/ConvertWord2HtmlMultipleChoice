@@ -23,7 +23,7 @@ End With
 
     'Execute functions...
     DocumentID = InputBox("DocumentID ? give a short name no spaces no special characters")
-    ReplyEmailAddress = InputBox("What is your reply email address ?")
+    ReplyEmailAddress = "no email but clipboard" 'InputBox("What is your reply email address ?")
     LoadArrays
     HideAcco
     replace_pilcrow 'replace pilcrows by real line break.
@@ -84,12 +84,7 @@ Sub addSubmitButton(ReplyEmailAddress As String, DocumentID As String)
                "  } " & vbCrLf & _
                "} " & vbCrLf & _
                " rs = rs.concat(" & Chr(34) & " ; " & Chr(34) & ", document.getElementById('cname').value)" & vbCrLf & _
-               " var link = " & Chr(34) & "mailto:" & ReplyEmailAddress & "" & Chr(34) & " " & vbCrLf & _
-               " + " & Chr(34) & "?cc=                         " & Chr(34) & " " & vbCrLf & _
-               " + " & Chr(34) & "&subject=" & Chr(34) & " + encodeURIComponent(" & Chr(34) & DocumentID & Chr(34) & ") " & vbCrLf & _
-               " + " & Chr(34) & "&body=" & Chr(34) & " + encodeURIComponent(rs) " & vbCrLf & _
-               " ; " & vbCrLf & _
-               " window.location.href = link; " & vbCrLf & _
+                           " navigator.clipboard.writeText(rs);" & vbCrLf & _
                " } " & vbCrLf & _
                " </script>" & vbCrLf & _
                ""
@@ -101,7 +96,7 @@ Sub addSubmitButton(ReplyEmailAddress As String, DocumentID As String)
     
     cScript = "<p><label for=" & Chr(34) & "fname" & Chr(34) & ">Naam:</label>" & vbCrLf & _
               "  <input type=" & Chr(34) & "text" & Chr(34) & " id=" & Chr(34) & "cname" & Chr(34) & " name=" & Chr(34) & "cname" & Chr(34) & "><br><br></p>" & vbCrLf & _
-              "<p><button class=" & Chr(34) & "button button1" & Chr(34) & " id=" & Chr(34) & "Sbmt" & Chr(34) & " onclick=" & Chr(34) & "clickFunction()" & Chr(34) & ">Submit</button></p></body>"
+              "<p><button class=" & Chr(34) & "button button1" & Chr(34) & " id=" & Chr(34) & "Sbmt" & Chr(34) & " onclick=" & Chr(34) & "clickFunction()" & Chr(34) & ">Copy answers to clipboard</button></p></body>"
      
      Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -112,23 +107,6 @@ Sub addSubmitButton(ReplyEmailAddress As String, DocumentID As String)
         .Execute Replace:=wdReplaceAll
     End With
      
-End Sub
-
-Sub AddStyle()
-   Dim cStyle
-   
-   cStyle = "<head><style type=" & Chr(34) & "text/css" & Chr(34) & "> p {font-family: sans-serif}</style>"
- 
-     Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "<head>"
-        .Replacement.Text = cStyle
-        .MatchWildcards = False
-        .Execute Replace:=wdReplaceAll
-    End With
-  
-
 End Sub
 
 Function HideAcco()
@@ -148,6 +126,25 @@ Function HideAcco()
 
 
 End Function
+
+Function AddStyle()
+   Dim cStyle
+   
+   cStyle = "<head><style type=" & Chr(34) & "text/css" & Chr(34) & "> p {font-family: sans-serif}</style>"
+ 
+     Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "<head>"
+        .Replacement.Text = cStyle
+        .MatchWildcards = False
+        .Execute Replace:=wdReplaceAll
+    End With
+  
+
+End Function
+
+
 
 Function replace_pilcrow()
 
@@ -976,3 +973,5 @@ ReDim Quotes(22, 1) As String
     Quotes(19, 0) = "›": Quotes(19, 1) = "&rsaquo;"                   'Right Single angle quote
     Quotes(20, 0) = "&#8250;": Quotes(20, 1) = "&rsaquo;"             'Right Single angle quote
 End Function
+
+
